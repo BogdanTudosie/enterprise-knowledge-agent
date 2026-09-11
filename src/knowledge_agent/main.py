@@ -17,3 +17,10 @@ def health() -> dict[str, str]:
         raise HTTPException(status_code=503, detail="Database unavailable") from exc
 
     return {"status": "ok", "database": "ok"}
+
+@app.get("/info")
+def info() -> dict[str, str]:
+    return {
+        "name": "Enterprise Knowledge Agent",
+        "version": "0.1.0",
+    }
